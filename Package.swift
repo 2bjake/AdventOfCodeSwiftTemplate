@@ -3,13 +3,15 @@
 
 import PackageDescription
 
-// if a specific day needs additional dependencies, add them here
+// if a specific day needs additional dependencies, add them here. For example:
+// [6 : [.product(name: "Collections", package: "swift-collections")]]
 let dayDependencies: [Int: [Target.Dependency]] = [:]
 
 let dayTargets: [Target] = (1...25).map {
   .target(
     name: "Day\($0)",
     dependencies: [
+      "Extensions",
       .product(name: "Algorithms", package: "swift-algorithms")
     ] + dayDependencies[$0, default: []])
 }
