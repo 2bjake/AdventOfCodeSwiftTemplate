@@ -1,5 +1,5 @@
 import Day1
-import Extensions
+import AdventUtilities
 
 @main
 struct Runner {

@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -11,8 +11,8 @@ let dayTargets: [Target] = (1...25).map {
   .target(
     name: "Day\($0)",
     dependencies: [
-      "Extensions",
-      .product(name: "Algorithms", package: "swift-algorithms")
+      .product(name: "Algorithms", package: "swift-algorithms"),
+      .product(name: "AdventUtilities", package: "AdventUtilities")
     ] + dayDependencies[$0, default: []])
 }
 
@@ -24,15 +24,12 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/apple/swift-algorithms", from: "1.0.0"),
+    .package(url: "https://github.com/2bjake/AdventUtilities", branch: "main")
   ],
   targets: [
     .executableTarget(
       name: "Main",
       dependencies: (1...25).map { .byName(name: "Day\($0)") }
     ),
-    .target(
-      name: "Extensions",
-      dependencies: [.product(name: "Algorithms", package: "swift-algorithms")]
-    )
   ] + dayTargets
 )

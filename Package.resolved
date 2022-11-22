@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "AdventUtilities",
+        "repositoryURL": "https://github.com/2bjake/AdventUtilities",
+        "state": {
+          "branch": "main",
+          "revision": "d58e771016c230f481594c879d2b198fd35b5778",
+          "version": null
+        }
+      },
+      {
         "package": "swift-algorithms",
         "repositoryURL": "https://github.com/apple/swift-algorithms",
         "state": {
