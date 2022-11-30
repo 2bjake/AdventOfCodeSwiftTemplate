@@ -13,7 +13,9 @@ let dayTargets: [Target] = (1...25).map {
     dependencies: [
       .product(name: "Algorithms", package: "swift-algorithms"),
       .product(name: "AdventUtilities", package: "AdventUtilities")
-    ] + dayDependencies[$0, default: []])
+    ] + dayDependencies[$0, default: []]),
+    swiftSettings: [.unsafeFlags(["-enable-bare-slash-regex"])]
+  )
 }
 
 let package = Package(
